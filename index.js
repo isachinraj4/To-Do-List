@@ -37,7 +37,7 @@ let addListnerToLi = () => {
 
 let completeTask = (element) => {
     return () => {
-        element.classList.toggle('checked');
+        //element.classList.toggle('checked');
         addToLocalStorage();
     }
 }
@@ -54,7 +54,10 @@ let getFromLocalStorate = () => {
 getFromLocalStorate();
 
 listContainer.addEventListener("click", (e) => {
-    if (e.target.tagName === "SPAN") {
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+    }
+    else if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
     }
     addToLocalStorage();
